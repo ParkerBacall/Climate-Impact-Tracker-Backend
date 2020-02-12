@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Map.destroy_all
+
+Map.create(name: 'Renewable Energy Useage Over Time')
+Map.create(name: 'Passenger Car Registraions Over Time')
