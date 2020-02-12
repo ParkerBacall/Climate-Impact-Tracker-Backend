@@ -7,10 +7,10 @@ class AuthenticationController < ApplicationController
 
         @user = User.find_by username: username
         if !@user 
-            render status: :unauthorized
+            render json: {status: :unauthorized, error: "Invalid username or password"}
         else
             if !@user.authenticate password 
-                render status: :unauthorized
+                render json: {status: :unauthorized, error: "Invalid username or password"}
             else
                 secret = Rails.application.secrets.secret_key_base[0]
                 token = JWT.encode({
