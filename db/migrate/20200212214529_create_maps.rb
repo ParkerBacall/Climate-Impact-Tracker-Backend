@@ -3,6 +3,7 @@ class CreateMaps < ActiveRecord::Migration[6.0]
     create_table :maps do |t|
       t.string :name
 
+
       t.timestamps
     end
   end

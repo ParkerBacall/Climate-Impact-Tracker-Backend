@@ -1,0 +1,2 @@
+class XesController < ApplicationController
+end

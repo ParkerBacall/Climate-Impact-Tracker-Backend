@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :xes
   resources :maps, only: [:index]
   resources :users, only: [:index, :create]
   post "login", to: "authentication#login"
