@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     before_action :authenticate, only: [:index]
 
     def index
-        render json: @user
+        render json: @user,  include: {maps: {include: [:xes, :ys]}}
     end
 
     def create

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_230702) do
+ActiveRecord::Schema.define(version: 2020_02_13_212213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2020_02_12_230702) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_graphs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "map_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["map_id"], name: "index_user_graphs_on_map_id"
+    t.index ["user_id"], name: "index_user_graphs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,8 +41,22 @@ ActiveRecord::Schema.define(version: 2020_02_12_230702) do
 
   create_table "xes", force: :cascade do |t|
     t.string "data"
+    t.bigint "map_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["map_id"], name: "index_xes_on_map_id"
   end
 
+  create_table "ys", force: :cascade do |t|
+    t.string "data"
+    t.bigint "map_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["map_id"], name: "index_ys_on_map_id"
+  end
+
+  add_foreign_key "user_graphs", "maps"
+  add_foreign_key "user_graphs", "users"
+  add_foreign_key "xes", "maps"
+  add_foreign_key "ys", "maps"
 end

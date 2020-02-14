@@ -1,6 +1,6 @@
-class CreateXes < ActiveRecord::Migration[6.0]
+class CreateYs < ActiveRecord::Migration[6.0]
   def change
-    create_table :xes do |t|
+    create_table :ys do |t|
       t.string :data
       t.references :map, foreign_key: true
 

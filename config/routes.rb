@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_graphs, only: [:index, :create]
+  resources :ys
   resources :xes
   resources :maps, only: [:index]
   resources :users, only: [:index, :create]
