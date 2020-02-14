@@ -9,5 +9,10 @@ class UserGraphsController < ApplicationController
         render json: @user_graph 
     end
 
+    def destroy 
+        @user_graph = UserGraph.find_by(map_id: params[:id])
+        @user_graph.destroy
+    end
+
 
 end
